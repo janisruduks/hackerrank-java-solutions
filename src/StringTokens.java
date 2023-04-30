@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StringTokens {
@@ -6,9 +5,16 @@ public class StringTokens {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
         scanner.close();
+        if(s.trim().equals("")){
+            System.out.println(0);
+            return;
+        }
 
-        String[] tokens = s.split(" !,?._'@");
+        String[] tokens = s.trim().split("[ !,?._'@]+");
+        System.out.println(tokens.length);
 
-        System.out.println(Arrays.toString(tokens));
+        for(String token: tokens){
+            System.out.println(token);
+        }
     }
 }
