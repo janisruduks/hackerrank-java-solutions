@@ -23,19 +23,23 @@ public class Array2D {
             arr.add(arrRowItems);
         }
         bufferedReader.close();
+        hourglass(arr);
     }
 
-    public static int hourglass(List<List<Integer>> array){
-        // in our 2d array we have 6x6 and we can fit 4 hourglasses inside side by side
-        // need to read 4 sections by 3 for hourglass head
-        // 4 sections by 1
-        int tempValue = 0;
-        for(int i = 0; i < 6; i++){
+    public static void hourglass(List<List<Integer>> array){
+        int sum = Integer.MIN_VALUE;
+        for(int i = 0; i < 4; i++){
            for(int j = 0; j < 4; j++){
-               int topAndBottom = array.get(i).get(j) + array.get(i+1).get(j+1) + array.get(i+2).get(j+2);
+               int top = array.get(i).get(j) + array.get(i).get(j+1) + array.get(i).get(j+2);
+               int middle = array.get(i+1).get(j+1);
+               int bottom = array.get(i+2).get(j) + array.get(i+2).get(j+1) + array.get(i+2).get(j+2);
+               int combined = top + middle + bottom;
+               System.out.println(combined);
+               if(sum < combined){
+                   sum = combined;
+               }
            }
         }
-
-        return 0;
+        System.out.println(sum);
     }
 }
