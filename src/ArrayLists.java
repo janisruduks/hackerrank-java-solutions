@@ -33,7 +33,7 @@ public class ArrayLists {
                 try {
                     System.out.println(numbers.get(x - 1).get(y));
                 } catch (IndexOutOfBoundsException error){
-                    System.out.println("ERROR !");
+                    System.out.println("ERROR!");
                 }
             }
         } catch (IOException error){
